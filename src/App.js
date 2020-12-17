@@ -47,7 +47,7 @@ apiCall() */
 
 
 const fetchLoop = async(page)=> {
-
+  
   const URL = `https://api.themoviedb.org/3/movie/${type}?api_key=${API_KEY}&language=en-US&page=${page}`
   const fetchRes = await fetch(URL)
   .then(res => res.json())
@@ -56,17 +56,11 @@ const fetchLoop = async(page)=> {
 
 [1,2,3,4,5].forEach(page => fetchLoop(page))
 
-
-
 setLoading(false)
 
 },[])
-
-
-
+  
   const flattenedArray = loopPosts.flatMap(item => item.results)
-
-
 //console.log('testing',posts)
 
 
@@ -76,7 +70,7 @@ const handleClick = async (num) => {
   setLoading(true)
   
     const URL = `https://api.themoviedb.org/3/movie/${type}?api_key=${API_KEY}&language=en-US&page=${num}`
-      //hide API-key later
+      //hide API-key later?
     await fetch(URL)
     .then(res => res.json())
     .then(data => setPosts(data))
