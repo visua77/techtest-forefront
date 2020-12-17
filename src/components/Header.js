@@ -1,32 +1,34 @@
-import React,{useState} from 'react'
+import React,{useState,useEffect} from 'react'
 import Pagination from './Pagination'
 
-const Header = ({number, setNumber, totalpages, handleClick}) => {
+const Header = ({ setTotalPages,page,setPage,  setType, totalpages, handleClick}) => {
 
 
+    useEffect(()=>{
+
+        if(totalpages){
+        setTotalPages([...Array(totalpages).keys()].map(num=> num+1))
+        console.log('keyed pages',totalpages)
+    }
+    
+    },[])
    
-    //console.log('our pages', pages)
+    console.log('our pages', totalpages)
     
     return(
         <>
         <header>
             <h1>Movie app</h1>
             <nav>
-                
-                {/* <p className="pages">{pages.map(no => 
-                <span className="no"onClick={()=> 
-                    handleClick(no)}key={no}>{no}
-                </span>)}
-                </p> */}
-                {/* <select onChange={(e)=> setNumber(e.target.value)}>
-                    <option value="30">Amount 30</option>
-                    <option value="60">Amount 60</option>
-                    <option value="90">Amount 90</option>
-                </select> */}
+                <select onChange={(e)=> setType(e.target.value)}>
+                    <option value='popular'>Popular movies</option>
+                    <option value='top_rated'>Top-rated movies</option>
+                    <option value='now_playing'>Now playing movies</option>
+                </select> 
             </nav>
             
         </header>
-        <Pagination totalpages={totalpages} handleClick={handleClick} />
+        <Pagination totalpages={totalpages} setTotalPages={setTotalPages} page={page} setPage={setPage} handleClick={handleClick} />
         </>
     )
 }

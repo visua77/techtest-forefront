@@ -9,7 +9,7 @@ const override = css`
   margin-top:2rem;
 `;
 
-const scrollToRef = (ref) => window.scrollTo(0, ref.current.offsetTop)  
+const scrollToRef = (ref) => window.scrollTo(0, ref.current.offsetTop-200)  
 
 
 const Movies = ({loading, posts, handleModal, setDescription})=> {
@@ -20,6 +20,7 @@ const Movies = ({loading, posts, handleModal, setDescription})=> {
 
     return(
         <div className="wrapper"ref={myRef}>{loading ? <div className="loader">
+                <h4>Loading</h4>
                 <PuffLoader
                 css={override}
                 size={250}

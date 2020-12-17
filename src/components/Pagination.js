@@ -1,17 +1,18 @@
 import React,{useState} from 'react'
 
-const Pagination = ({totalpages, handleClick})=> {
+const Pagination = ({totalpages,  handleClick, page, setPage})=> {
 
-
-    const pages = [...Array(totalpages).keys()].map(num=> num+1)
+    console.log(page)
 
     return(
         <nav className="pagination">
-            <p className="pages">{pages.map(no => 
-                <span className="no"onClick={()=> 
-                    handleClick(no)}key={no}>{no}
-                </span>)}
-            </p>
+             <p className="pages">{totalpages.length ? totalpages.map(no => 
+                <span className={'no'}onClick={()=>{ 
+                    handleClick(no)
+                    setPage(no)
+                    }} key={no}>{no}
+                </span>):null}
+            </p> 
         </nav>
     )
 }
