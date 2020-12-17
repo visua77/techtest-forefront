@@ -18,7 +18,7 @@ const Header = ({ setTotalPages,page,setPage,  setType, totalpages, handleClick}
     return(
         <>
         <header>
-            <h1>Movie app</h1>
+            <h1 onClick={()=>handleClick(1)}>Movie app</h1>
             <nav>
                 <select onChange={(e)=> setType(e.target.value)}>
                     <option value='popular'>Popular movies</option>
