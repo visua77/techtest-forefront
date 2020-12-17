@@ -19,8 +19,9 @@ const Movies = ({loading, posts, handleModal, setDescription,page, totalpages})=
     const executeScroll = () => scrollToRef(myRef)
 
     return(
-    <><p className="info"ref={myRef}>Page {page} out of {totalpages.length-1+1}</p>
-        <div className="wrapper">
+    <>{/* <p className="info"ref={myRef}>Page {page} out of {totalpages.length-1+1}</p> */}
+        
+        <div className="wrapper"ref={myRef}>
             
             {loading ? <div className="loader">
                 <h4>Loading</h4>
@@ -31,7 +32,7 @@ const Movies = ({loading, posts, handleModal, setDescription,page, totalpages})=
                 />
                 </div>
             :
-            posts.results.map(post => (
+            posts.map(post => (
                 <div className="card" key={post.id} onClick={()=>{
                     handleModal()
                     setDescription({

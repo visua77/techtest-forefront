@@ -8,7 +8,7 @@ const Header = ({ setTotalPages,page,setPage,  setType, totalpages, handleClick}
 
         if(totalpages){
         setTotalPages([...Array(totalpages).keys()].map(num=> num+1))
-        //console.log('keyed pages',totalpages)
+        
     }
     
     },[])
@@ -28,7 +28,7 @@ const Header = ({ setTotalPages,page,setPage,  setType, totalpages, handleClick}
             </nav>
             
         </header>
-        <Pagination totalpages={totalpages} setTotalPages={setTotalPages} page={page} setPage={setPage} handleClick={handleClick} />
+        {/* <Pagination totalpages={totalpages} setTotalPages={setTotalPages} page={page} setPage={setPage} handleClick={handleClick} /> */}
         </>
     )
 }
