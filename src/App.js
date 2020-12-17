@@ -69,7 +69,7 @@ return (
     <>
       <Modal description={description} modaltoggle={modaltoggle} handleModal={handleModal} />
       <Header totalpages={totalpages} setTotalPages={setTotalPages} page={page} setPage={setPage} setType={setType} handleClick={handleClick} />
-      <Movies loading={loading} setLoading={setLoading} posts={posts} handleModal={handleModal} setDescription={setDescription} />
+      <Movies loading={loading} setLoading={setLoading} posts={posts} handleModal={handleModal} setDescription={setDescription} page={page} totalpages={totalpages} />
       <Footer />
     </>
   )

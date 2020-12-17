@@ -9,17 +9,20 @@ const override = css`
   margin-top:2rem;
 `;
 
-const scrollToRef = (ref) => window.scrollTo(0, ref.current.offsetTop-200)  
+const scrollToRef = (ref) => window.scrollTo(0, ref.current.offsetTop-300)  
 
 
-const Movies = ({loading, posts, handleModal, setDescription})=> {
+const Movies = ({loading, posts, handleModal, setDescription,page, totalpages})=> {
 
 
     const myRef = useRef(null)
     const executeScroll = () => scrollToRef(myRef)
 
     return(
-        <div className="wrapper"ref={myRef}>{loading ? <div className="loader">
+    <><p className="info"ref={myRef}>Page {page} out of {totalpages.length-1+1}</p>
+        <div className="wrapper">
+            
+            {loading ? <div className="loader">
                 <h4>Loading</h4>
                 <PuffLoader
                 css={override}
@@ -44,7 +47,7 @@ const Movies = ({loading, posts, handleModal, setDescription})=> {
                     <span className="date">{post.release_date}</span>
                 </div>
           ))}
-        </div>
+        </div></>
     )
 }
 
