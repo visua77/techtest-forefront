@@ -8,12 +8,12 @@ const Header = ({ setTotalPages,page,setPage,  setType, totalpages, handleClick}
 
         if(totalpages){
         setTotalPages([...Array(totalpages).keys()].map(num=> num+1))
-        console.log('keyed pages',totalpages)
+        //console.log('keyed pages',totalpages)
     }
     
     },[])
    
-    console.log('our pages', totalpages)
+    //console.log('our pages', totalpages)
     
     return(
         <>

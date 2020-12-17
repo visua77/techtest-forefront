@@ -2,7 +2,7 @@ import React,{useState} from 'react'
 
 const Pagination = ({totalpages,  handleClick, page, setPage})=> {
 
-    console.log(page)
+    //console.log(page)
 
     return(
         <nav className="pagination">
