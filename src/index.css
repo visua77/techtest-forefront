@@ -242,22 +242,16 @@ select:focus {
 @media (max-width:720px){
 
 h1 {
-    font-size: 4rem;
+    font-size: 3rem;
     color:rgba(255, 255, 255, 0.7);
-    
-    
-  
-  }
+    margin:.5rem;
+    }
 
   header {
-    
     display:flex;
     flex-direction: column;
-    justify-content: space-between;
-    align-items: top;
-    
-    padding:2rem;
-    height:200px;
+    padding:1.4rem;
+    height:60%;
     background-color: rgba(255, 255, 255, 0.4);
   }
 
