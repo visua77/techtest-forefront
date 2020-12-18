@@ -12,13 +12,9 @@ function App() {
   //Setting state here
   const[loading, setLoading] = useState(true)
   const[posts, setPosts] = useState([])
-
   const [loopPosts, setLoopPosts] = useState([])
-
-  const [page,setPage] = useState(1)
   const[type, setType] = useState('popular')
-  //State for 100 posts(5)
-  const [totalpages, setTotalPages] = useState(5)
+
   const [description, setDescription] = useState({
     id:undefined, 
     title:undefined, 
@@ -52,23 +48,6 @@ setLoading(false)
 
 
 },[getmovies])
-
-
-
-const handleClick = async (num) => {
-
-  setLoading(true)
-  
-    const URL = `https://api.themoviedb.org/3/movie/${type}?api_key=${API_KEY}&language=en-US&page=${num}`
-      //hide API-key later?
-    await fetch(URL)
-    .then(res => res.json())
-    .then(data => setPosts(data))
-    .catch(err => console.log(err))
-
-    setLoading(false)
-
-}
 
 const handleModal =()=> {
     setModalToggle(prev => !prev)
