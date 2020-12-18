@@ -26,6 +26,7 @@ function App() {
     img:undefined 
   })
   const[modaltoggle, setModalToggle] = useState(false)
+  const[getmovies, setGetMovies] = useState(false)
 
   
 
@@ -45,7 +46,6 @@ useEffect(()=> {
 }
 apiCall() */
 
-
 const fetchLoop = async(page)=> {
   
   const URL = `https://api.themoviedb.org/3/movie/${type}?api_key=${API_KEY}&language=en-US&page=${page}`
@@ -56,14 +56,17 @@ const fetchLoop = async(page)=> {
 
 [1,2,3,4,5].forEach(page => fetchLoop(page))
 
+
+const flattenedArray = loopPosts.flatMap(item => item.results)
+
+setPosts(flattenedArray)
 setLoading(false)
 
-},[])
-  
-  const flattenedArray = loopPosts.flatMap(item => item.results)
-//console.log('testing',posts)
 
 
+},[getmovies])
+
+console.log('testing',posts)
 
 const handleClick = async (num) => {
 
@@ -89,8 +92,8 @@ const handleModal =()=> {
 return (
     <>
       <Modal description={description} modaltoggle={modaltoggle} handleModal={handleModal} />
-      <Header totalpages={totalpages} setTotalPages={setTotalPages} page={page} setPage={setPage} setType={setType} handleClick={handleClick} />
-      <Movies loading={loading} setLoading={setLoading} posts={flattenedArray} handleModal={handleModal} setDescription={setDescription} page={page} totalpages={totalpages} />
+      <Header totalpages={totalpages} setTotalPages={setTotalPages} page={page} setPage={setPage} setType={setType} handleClick={handleClick} setGetMovies={setGetMovies} />
+      <Movies loading={loading} setLoading={setLoading} posts={posts} getmovies={getmovies} handleModal={handleModal} setDescription={setDescription} page={page} totalpages={totalpages} />
       <Footer />
     </>
   )

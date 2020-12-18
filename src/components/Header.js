@@ -1,7 +1,7 @@
 import React,{useState,useEffect} from 'react'
 import Pagination from './Pagination'
 
-const Header = ({ setTotalPages,page,setPage,  setType, totalpages, handleClick}) => {
+const Header = ({ setTotalPages,page,setPage,  setType, totalpages, handleClick, setGetMovies}) => {
 
 
     useEffect(()=>{
@@ -13,18 +13,19 @@ const Header = ({ setTotalPages,page,setPage,  setType, totalpages, handleClick}
     
     },[])
    
-    //console.log('our pages', totalpages)
+    //console.log('set flag', getMovies)
     
     return(
         <>
         <header>
-            <h1 onClick={()=>handleClick(1)}>Movie app</h1>
+            <h1>Movie app</h1>
             <nav>
-                <select onChange={(e)=> setType(e.target.value)}>
+                <button onClick={()=>setGetMovies(true)}>Get Movies</button>
+                {/* <select onChange={(e)=> setType(e.target.value)}>
                     <option value='popular'>Popular movies</option>
                     <option value='top_rated'>Top-rated movies</option>
                     <option value='now_playing'>Now playing movies</option>
-                </select> 
+                </select>  */}
             </nav>
             
         </header>

@@ -12,7 +12,7 @@ const override = css`
 const scrollToRef = (ref) => window.scrollTo(0, ref.current.offsetTop-300)  
 
 
-const Movies = ({loading, posts, handleModal, setDescription,page, totalpages})=> {
+const Movies = ({loading, posts, handleModal, setDescription, getmovies,  page, totalpages})=> {
 
 
     const myRef = useRef(null)
@@ -32,7 +32,8 @@ const Movies = ({loading, posts, handleModal, setDescription,page, totalpages})=
                 />
                 </div>
             :
-            posts.map(post => (
+            getmovies === false ? <h4>Hello, you havent loaded any movies yet, hit that button!</h4>:
+            getmovies ? posts.map(post => (
                 <div className="card" key={post.id} onClick={()=>{
                     handleModal()
                     setDescription({
@@ -45,9 +46,10 @@ const Movies = ({loading, posts, handleModal, setDescription,page, totalpages})=
                     
                     }}>
                     <img src={`https://image.tmdb.org/t/p/w200${post.poster_path}`} alt="#"/>
-                    <span className="date">{post.release_date}</span>
+                    <span className="span-wrapper"><span className="date">{post.release_date}</span><span className="date">{post.vote_average}</span></span>
                 </div>
-          ))}
+          ))
+        :null}
         </div></>
     )
 }
