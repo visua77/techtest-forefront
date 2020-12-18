@@ -12,7 +12,7 @@ const override = css`
 const scrollToRef = (ref) => window.scrollTo(0, ref.current.offsetTop-300)  
 
 
-const Movies = ({loading, posts, handleModal, setDescription, getmovies,  page, totalpages})=> {
+const Movies = ({loading, posts, handleModal, setDescription, getmovies})=> {
 
 
     const myRef = useRef(null)
